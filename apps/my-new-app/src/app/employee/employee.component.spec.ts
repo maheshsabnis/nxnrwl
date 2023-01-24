@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {FormsModule} from '@angular/forms';
 import { EmployeeComponent } from './employee.component';
 
 describe('EmployeeComponent', () => {
@@ -8,7 +8,8 @@ describe('EmployeeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmployeeComponent ]
+      declarations: [ EmployeeComponent ],
+      imports:[FormsModule]
     })
     .compileComponents();
 
@@ -19,5 +20,13 @@ describe('EmployeeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should add two numbers',()=>{
+    const a = 10;
+    const b = 20;
+    const expected  =30;
+    const actual = component.add(a,b);
+    expect(actual).toEqual(expected);
   });
 });
